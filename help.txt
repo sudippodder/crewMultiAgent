@@ -1,0 +1,6 @@
+conda create -p venv python==3.10
+conda activate venv/
+
+pip install crewai openai requests python-dotenv
+
+(Get-ChildItem -Recurse .git | Measure-Object -Property Length -Sum).Sum / 1MB
