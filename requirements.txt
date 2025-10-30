@@ -1,3 +1,5 @@
+streamlit
+Flask>=2.3.0
 crewai>=0.40.0
 crewai-tools>=0.5.0
 openai>=1.0.0

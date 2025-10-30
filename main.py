@@ -106,4 +106,4 @@ def run_pipeline(topic: str):
     #             f.write(str(task_output.output))
 
 if __name__ == "__main__":
-    run_pipeline("Top 5 General AI Agents that Can Make Your Life Easy!")
+    run_pipeline("Travel Guide to Kolkata")
