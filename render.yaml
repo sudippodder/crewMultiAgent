@@ -12,5 +12,9 @@ services:
       - key: PYTHONUNBUFFERED
         value: "1"
       - key: PORT
-        value: "10000"   # Render will override with its runtime $PORT; this is just a placeholder
+        value: "10000"  
+      - key: OPENAI_API_KEY
+        value: "1"
+      - key: SERPER_API_KEY
+        value: "2"  # Render will override with its runtime $PORT; this is just a placeholder
       # DO NOT put secret keys here. Add OPENAI_API_KEY and SERPER_API_KEY in Render's Dashboard as secure variables.
