@@ -6,6 +6,10 @@ pip install crewai openai requests python-dotenv
 (Get-ChildItem -Recurse .git | Measure-Object -Property Length -Sum).Sum / 1MB
 
 
+<<<<<<< HEAD
  pip install -r requirements.txt
 
  streamlit run yourscript.py
+=======
+ pip install -r requirements.txt
+>>>>>>> 6a94b4ef5069891cdafe23d1e70ed1f3b3421fb2
