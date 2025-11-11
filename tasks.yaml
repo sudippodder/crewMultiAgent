@@ -1,0 +1,28 @@
+tasks:
+  research_task:
+    agent: researcher
+    description: >
+      Use the Serper API to find and summarize blog content and insights about the given topic.
+    expected_output: >
+      A clear, structured summary of insights and key points from top search results.
+
+  writing_task:
+    agent: writer
+    description: >
+      Using the summary from the research agent, write a well-structured blog post.
+    expected_output: >
+      A complete, SEO-friendly blog article ready for editing.
+
+  editing_task:
+    agent: editor
+    description: >
+      Review and edit the drafted blog content to fix grammar, improve flow, and ensure clarity.
+    expected_output: >
+      A polished, professional version of the blog article.
+
+  publishing_task:
+    agent: publisher
+    description: >
+      Upload and publish the final article using the blog’s publishing API.
+    expected_output: >
+      Confirmation that the blog post has been successfully published with a live URL.
