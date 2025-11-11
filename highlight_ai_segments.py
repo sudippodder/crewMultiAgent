@@ -108,7 +108,7 @@ def display_highlighted_text(detection_result):
         )
     st.markdown(highlighted_text, unsafe_allow_html=True)
 
-    st.divider()
+    #st.divider()
     #st.stop()
     # st.subheader("🧩 AI Detection Visualization")
     # st.markdown(
@@ -165,7 +165,7 @@ def display_highlighted_text(detection_result):
 
             /* Style for the empty part of the progress bar */
             .stProgress > div > div > div {
-                background-color: red;
+                background-color: green;
             }
         </style>""",
         unsafe_allow_html=True
