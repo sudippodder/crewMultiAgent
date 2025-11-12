@@ -36,18 +36,18 @@ def generate_content_page():
         if topic.strip():
             with st.spinner("🤖 Generating content..."):
                 try:
-                    # result = run_pipeline(
-                    #     topic,
-                    #     researcher_goal, researcher_backstory,
-                    #     writer_goal, writer_backstory,
-                    #     editor_goal, editor_backstory
-                    # )
-                    file_path = "outputs/For_Audience_Engagement.txt"  # Replace with your file name or full path
-                    # Open the file in read mode ('r')
-                    with open(file_path, "r", encoding="utf-8") as file:
-                        content = file.read()
+                    result = run_pipeline(
+                        topic,
+                        researcher_goal, researcher_backstory,
+                        writer_goal, writer_backstory,
+                        editor_goal, editor_backstory
+                    )
+                    # file_path = "outputs/For_Audience_Engagement.txt"  # Replace with your file name or full path
+                    # # Open the file in read mode ('r')
+                    # with open(file_path, "r", encoding="utf-8") as file:
+                    #     content = file.read()
 
-                    result = content
+                    # result = content
                     st.session_state.generated_content = result
                     st.session_state.editable_text = result
                     #st.session_state.detection_result = check_ai_content(result)
