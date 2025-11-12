@@ -26,33 +26,41 @@ def generate_content_page():
     if "detection_result" not in st.session_state:
         st.session_state.detection_result = None
 
+      # --- Initialize session state ---
+    # st.session_state.setdefault("generated_content", None)
+    # st.session_state.setdefault("detection_result", None)
+    st.session_state.setdefault("show_editor", False)
+    st.session_state.setdefault("editable_text", "")
+
     if st.button("🚀 Generate Content"):
         if topic.strip():
             with st.spinner("🤖 Generating content..."):
                 try:
-                    result = run_pipeline(
-                        topic,
-                        researcher_goal, researcher_backstory,
-                        writer_goal, writer_backstory,
-                        editor_goal, editor_backstory
-                    )
-                    # file_path = "outputs/For_Audience_Engagement.txt"  # Replace with your file name or full path
-                    # # Open the file in read mode ('r')
-                    # with open(file_path, "r", encoding="utf-8") as file:
-                    #     content = file.read()
+                    # result = run_pipeline(
+                    #     topic,
+                    #     researcher_goal, researcher_backstory,
+                    #     writer_goal, writer_backstory,
+                    #     editor_goal, editor_backstory
+                    # )
+                    file_path = "outputs/For_Audience_Engagement.txt"  # Replace with your file name or full path
+                    # Open the file in read mode ('r')
+                    with open(file_path, "r", encoding="utf-8") as file:
+                        content = file.read()
 
-                    # result = content
+                    result = content
                     st.session_state.generated_content = result
+                    st.session_state.editable_text = result
                     #st.session_state.detection_result = check_ai_content(result)
                     #display_paragraphs_with_detection(result)
                     detection_result = check_ai_content(result)
+                    st.session_state.detection_result = detection_result
 
-                    if "error" in detection_result:
-                        st.error(detection_result["error"])
-                    else:
-                        display_highlighted_text(detection_result)
+                    # if "error" in detection_result:
+                    #     st.error(detection_result["error"])
+                    # else:
+                    #     display_highlighted_text(detection_result)
 
-                    st.success("✅ Generation complete!")
+                    st.success("✅ Generation complete! See below for AI detection results.")
                 except Exception as e:
                     st.error(f"Error: {e}")
         else:
@@ -62,4 +70,7 @@ def generate_content_page():
     #     st.subheader("📝 Generated Content")
     #     st.markdown(st.session_state.generated_content)
 
-generate_content_page()
+    if st.session_state.get("detection_result"):
+        #st.markdown("---")
+        #st.subheader("🧩 AI Detection Results")
+        display_highlighted_text(st.session_state.detection_result)

@@ -38,7 +38,7 @@ if "edit_cache" not in st.session_state:
 
 #st.set_page_config(page_title="Multi-Agent Content Generator", layout="wide")
 
-st.title("🧠 Multi-Agent AI Content Generator V-1.0.2")
+st.title("🧠 AI Content Agent v1.0.3")
 
 st.markdown("""
 Enter your topic and optionally customize each agent’s **goal** and **backstory**.
