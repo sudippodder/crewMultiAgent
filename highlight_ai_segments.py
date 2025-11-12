@@ -47,7 +47,7 @@ def display_highlighted_text(detection_result):
 
     st.markdown(
         f"""
-        <div style="padding:15px;border-radius:10px;background-color:{"#ffffff" if is_human == 0 else "#071D07"};">
+        <div style="padding:15px;border-radius:10px;background-color:{"#ffffff" if is_human == 0 else "#cadeca"};">
             <h4 style="margin:0;">Prediction: <span style="color:{color};">{label}</span></h4>
             <p style="margin:5px 0;"><b>Feedback:</b> {feedback}</p>
             <p style="margin:5px 0;"><b>AI Probability:</b> {fake_percentage:.2f}%</p>
