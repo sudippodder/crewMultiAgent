@@ -37,8 +37,8 @@ if "edit_cache" not in st.session_state:
 
 
 #st.set_page_config(page_title="Multi-Agent Content Generator", layout="wide")
-if st.button("Go to Another Page"):
-    st.switch_page("app_login.py")
+# if st.button("Go to Another Page"):
+#     st.switch_page("app_login.py")
 
 st.title("🧠 AI Content Agent v1.0.3")
 
