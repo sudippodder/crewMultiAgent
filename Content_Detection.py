@@ -32,9 +32,9 @@ def detection_page():
             hi_segments = data.get("hi", [])
             original_text = data.get("originalParagraph", "")
 
-            label = "AI-Generated" if is_human == 0 else "Human-Written"
-            label = "🧠 AI-Generated" if is_human == 0 else "🧍 Human-Written"
-            color = "red" if is_human == 0 else "green"
+            #label = "AI-Generated" if is_human == 0 else "Human-Written"
+            label = "🧠 AI-Generated" if is_human >= 85 else "🧍 Human-Written"
+            color = "red" if is_human >= 85 else "green"
 
             st.markdown(
                 f"""
