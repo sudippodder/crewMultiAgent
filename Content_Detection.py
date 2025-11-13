@@ -33,12 +33,13 @@ def detection_page():
             original_text = data.get("originalParagraph", "")
 
             #label = "AI-Generated" if is_human == 0 else "Human-Written"
-            label = "🧠 AI-Generated" if is_human >= 85 else "🧍 Human-Written"
-            color = "red" if is_human >= 85 else "green"
-
+            label = "🧠 AI-Generated" if is_human >= 80 else "🧍 Human-Written"
+            color = "red" if is_human >= 80 else "green"
+            st.json(data)
             st.markdown(
                 f"""
                 <div style="padding:15px;border-radius:10px;background-color:{"#fff" if is_human == 0 else "#071D07"};">
+                (is_human: {is_human}) (fake_percentage: {fake_percentage})
                     <h4 style="margin:0;">Prediction: <span style="color:{color};">{label}</span></h4>
                     <p style="margin:5px 0;"><b>Feedback:</b> {feedback}</p>
                     <p style="margin:5px 0;"><b>AI Probability:</b> {fake_percentage:.2f}%</p>

@@ -42,12 +42,25 @@ def display_highlighted_text(detection_result):
     st.markdown("---")
     st.subheader("🧩 AI Detection Results")
 
-    label = "🧠 AI-Generated" if is_human == 0 else "🧍 Human-Written"
-    color = "red" if is_human == 0 else "green"
+    if int(is_human) >= 85:
+        label = "🧍 Human-Written"
+    else:
+        label = "🧠 AI-Generated"
+
+
+    if int(is_human) >= 85:
+        color = "green"
+    else:
+        color = "red"
+
+    if int(is_human) >= 85:
+        bgcolor = "#cadeca"
+    else:
+        bgcolor = "#ffffff"
 
     st.markdown(
         f"""
-        <div style="padding:15px;border-radius:10px;background-color:{"#ffffff" if is_human == 0 else "#cadeca"};">
+        <div style="padding:15px;border-radius:10px;background-color:{bgcolor};">
             <h4 style="margin:0;">Prediction: <span style="color:{color};">{label}</span></h4>
             <p style="margin:5px 0;"><b>Feedback:</b> {feedback}</p>
             <p style="margin:5px 0;"><b>AI Probability:</b> {fake_percentage:.2f}%</p>
