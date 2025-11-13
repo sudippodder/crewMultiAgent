@@ -4,7 +4,10 @@ from zerogpt_api import check_ai_content
 from paragraph_editor import display_paragraphs_with_detection
 from highlight_ai_segments import display_highlighted_text
 
+#from tools.serper_tool import SerperTool
+
 def generate_content_page():
+
     st.title("✍️ Generate AI Blog Content")
 
     topic = st.text_input("Enter your topic:", placeholder="e.g. AI tools for marketing")
@@ -33,6 +36,30 @@ def generate_content_page():
     st.session_state.setdefault("editable_text", "")
 
     if st.button("🚀 Generate Content"):
+
+
+        missing_fields = []
+        if not topic.strip():
+            missing_fields.append("Topic")
+        if not researcher_goal.strip():
+            missing_fields.append("Researcher Goal")
+        if not researcher_backstory.strip():
+            missing_fields.append("Researcher Backstory")
+        if not writer_goal.strip():
+            missing_fields.append("Writer Goal")
+        if not writer_backstory.strip():
+            missing_fields.append("Writer Backstory")
+        if not editor_goal.strip():
+            missing_fields.append("Editor Goal")
+        if not editor_backstory.strip():
+            missing_fields.append("Editor Backstory")
+
+        if missing_fields:
+            st.warning(f"Please fill out all required fields: {', '.join(missing_fields)}")
+            st.stop()
+
+
+
         if topic.strip():
             with st.spinner("🤖 Generating content..."):
                 try:
@@ -48,6 +75,11 @@ def generate_content_page():
                     #     content = file.read()
 
                     # result = content
+
+                    #st.json(serper_tool)
+                    #return serper_tool
+
+                    #result = "Sample generated content based on the topic."
                     st.session_state.generated_content = result
                     st.session_state.editable_text = result
                     #st.session_state.detection_result = check_ai_content(result)

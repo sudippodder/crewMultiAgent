@@ -37,15 +37,16 @@ if "edit_cache" not in st.session_state:
 
 
 #st.set_page_config(page_title="Multi-Agent Content Generator", layout="wide")
+if st.button("Go to Another Page"):
+    st.switch_page("app_login.py")
 
 st.title("🧠 AI Content Agent v1.0.3")
 
-st.markdown("""
-Enter your topic and optionally customize each agent’s **goal** and **backstory**.
-The AI agents will research, write, and edit your Content collaboratively.\n"""
+st.markdown(f"""
+<b>Enter your topic, then define each agent's role and backstory to get targeted, comprehensive output. The more specific you are, the better your content in terms of depth, angle, and completeness.</b>\n"""
 """
 This multi-agent system can be used anywhere content needs to be created, refined, and published regularly. Some examples include: SEO-friendly blogs and articles, generating social media posts, newsletters, campaign content , product descriptions, guides, promotional blogs, newsletters, announcements, reports.
-""")
+""", unsafe_allow_html=True)
 
 # --- GENERATE BUTTON ---
 generate_content_page()
